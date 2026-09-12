@@ -1,6 +1,6 @@
 # Cask de SuperPartner (el agente) para macOS. El .app viene firmado con
 # Developer ID, notarizado y grapado, así que brew sólo lo copia.
-#   brew tap superpartnerdev/sp
+#   brew tap superpartnerdev/sp && brew trust superpartnerdev/sp
 #   brew install --cask superpartner
 #   superpartner --instalar-servicio --hub https://mcp.superpartner.ca
 cask "superpartner" do
@@ -13,7 +13,7 @@ cask "superpartner" do
   homepage "https://mcp.superpartner.ca"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "Super Partner.app"
   binary "#{appdir}/Super Partner.app/Contents/MacOS/superpartner"

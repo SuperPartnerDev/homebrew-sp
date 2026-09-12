@@ -1,6 +1,7 @@
 # Tap de Homebrew de SuperPartner
 
     brew tap superpartnerdev/sp
+    brew trust superpartnerdev/sp
     brew install --cask superpartner
     superpartner --instalar-servicio --hub https://mcp.superpartner.ca
 
