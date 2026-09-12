@@ -1,7 +1,7 @@
-# Tap de Homebrew de remoto
+# Tap de Homebrew de SuperPartner
 
-    brew tap adiazpe/sp
-    brew install adiazpe/sp/remoto-agente
-    brew services start remoto-agente
+    brew tap superpartnerdev/sp
+    brew install --cask superpartner
+    superpartner --instalar-servicio --hub https://mcp.superpartner.ca
 
-Sólo la receta vive aquí; el binario lo sirve el hub del operador.
+Aquí vive la receta; el instalador se baja de los releases de este mismo repo.
