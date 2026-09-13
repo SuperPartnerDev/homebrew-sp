@@ -18,7 +18,10 @@ cask "superpartner" do
   app "Super Partner.app"
   binary "#{appdir}/Super Partner.app/Contents/MacOS/superpartner"
 
-  uninstall launchctl: "ca.superpartner.agente"
+  # Sin `uninstall launchctl:` a propósito: brew la ejecuta con sudo cuando no
+  # encuentra el servicio en la sesión, y pide contraseña de administrador. El
+  # servicio lo instala y lo quita el propio agente, sin brew y sin sudo:
+  #   superpartner --quitar-servicio
   zap trash: [
     "~/Library/LaunchAgents/ca.superpartner.agente.plist",
     "~/Library/Logs/SuperPartner",
