@@ -4,8 +4,8 @@
 #   brew install --cask superpartner
 #   superpartner --instalar-servicio --hub https://mcp.superpartner.ca
 cask "superpartner" do
-  version "2.0.0"
-  sha256 "4e6ebf3cde3095916aa236867a07eccca7d9fa46c7a25344138e5a8ef9538cf7"
+  version "2.0.2"
+  sha256 "39d471b98e26009485efc3e471b1c4ef429cd27d72413b5971e8bf12f0434d08"
 
   url "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v#{version}/SuperPartner-#{version}-darwin-arm64.zip"
   name "Super Partner"
