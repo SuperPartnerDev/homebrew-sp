@@ -4,22 +4,27 @@
   "homepage": "https://mcp.superpartner.ca",
   "license": "Proprietary",
   "url": "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v2.0.1/superpartner-2.0.1.tgz",
-  "hash": "77e225f1132cdf5144c4b4b78b9b0fbd9ae6a42b7d786d7000f919b4e0bee45d",
+  "hash": "b7d5916bb46eb26394ad29e38dfc21acb7bc1c08046117d2ba5bcd6a9e65f987",
   "installer": {
     "script": [
-      "# El tgz npm se extrae en $dir\\package. Se instala en el prefijo del usuario, sin admin,",
-      "# y el propio agente monta su arranque (tarea al iniciar sesion) con --instalar-servicio.",
-      "npm install -g \"$dir\\package\" 2>$null | Out-Null",
-      "$sp = Join-Path (npm prefix -g) 'superpartner.cmd'",
-      "& $sp --instalar-servicio --hub https://mcp.superpartner.ca 2>$null | Out-Null",
-      "Write-Host 'SuperPartner instalado. Aprueba esta maquina en el panel del hub (mcp.superpartner.ca).'"
+      "# El tgz npm se extrae en $dir\\package (solo dist/, sin dependencias).",
+      "# Se instalan las 3 dependencias de produccion dentro del propio paquete,",
+      "# usando el Node que el usuario ya tiene en el PATH (no el de scoop).",
+      "Push-Location \"$dir\\package\"",
+      "npm install --omit=dev --no-audit --no-fund --no-package-lock --loglevel=error 2>&1 | Out-Null",
+      "Pop-Location",
+      "# Un .cmd propio que arranca el agente con node, resolviendo su ruta con %~dp0.",
+      "Set-Content -LiteralPath \"$dir\\package\\superpartner.cmd\" -Value '@node \"%~dp0dist\\main.js\" %*' -Encoding Ascii"
     ]
   },
+  "bin": "package\\superpartner.cmd",
+  "post_install": [
+    "node \"$dir\\package\\dist\\main.js\" --instalar-servicio --hub https://mcp.superpartner.ca 2>&1 | Out-Null",
+    "Write-Host 'SuperPartner instalado. Aprueba esta maquina en el panel del hub (mcp.superpartner.ca).'"
+  ],
   "uninstaller": {
     "script": [
-      "$sp = Join-Path (npm prefix -g) 'superpartner.cmd'",
-      "if (Test-Path $sp) { & $sp --quitar-servicio 2>$null | Out-Null }",
-      "npm uninstall -g superpartner 2>$null | Out-Null"
+      "node \"$dir\\package\\dist\\main.js\" --quitar-servicio 2>&1 | Out-Null"
     ]
   },
   "notes": [
