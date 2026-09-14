@@ -1,0 +1,30 @@
+{
+  "version": "2.0.1",
+  "description": "El agente de SuperPartner: maneja esta maquina de forma remota desde el hub. A nivel usuario, sin admin.",
+  "homepage": "https://mcp.superpartner.ca",
+  "license": "Proprietary",
+  "depends": "nodejs",
+  "url": "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v2.0.1/superpartner-2.0.1.tgz",
+  "hash": "77e225f1132cdf5144c4b4b78b9b0fbd9ae6a42b7d786d7000f919b4e0bee45d",
+  "installer": {
+    "script": [
+      "# El tgz npm se extrae en $dir\\package. Se instala en el prefijo del usuario, sin admin,",
+      "# y el propio agente monta su arranque (tarea al iniciar sesion) con --instalar-servicio.",
+      "npm install -g \"$dir\\package\" 2>$null | Out-Null",
+      "$sp = Join-Path (npm prefix -g) 'superpartner.cmd'",
+      "& $sp --instalar-servicio --hub https://mcp.superpartner.ca 2>$null | Out-Null",
+      "Write-Host 'SuperPartner instalado. Aprueba esta maquina en el panel del hub (mcp.superpartner.ca).'"
+    ]
+  },
+  "uninstaller": {
+    "script": [
+      "$sp = Join-Path (npm prefix -g) 'superpartner.cmd'",
+      "if (Test-Path $sp) { & $sp --quitar-servicio 2>$null | Out-Null }",
+      "npm uninstall -g superpartner 2>$null | Out-Null"
+    ]
+  },
+  "notes": [
+    "Para darle un nombre distinto al hostname:  superpartner --instalar-servicio --hub https://mcp.superpartner.ca --nombre TU-NOMBRE",
+    "Quitar:  scoop uninstall superpartner"
+  ]
+}
