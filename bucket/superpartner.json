@@ -3,7 +3,6 @@
   "description": "El agente de SuperPartner: maneja esta maquina de forma remota desde el hub. A nivel usuario, sin admin.",
   "homepage": "https://mcp.superpartner.ca",
   "license": "Proprietary",
-  "depends": "nodejs",
   "url": "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v2.0.1/superpartner-2.0.1.tgz",
   "hash": "77e225f1132cdf5144c4b4b78b9b0fbd9ae6a42b7d786d7000f919b4e0bee45d",
   "installer": {
