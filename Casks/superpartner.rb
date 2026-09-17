@@ -2,7 +2,7 @@
 # Developer ID, notarizado y grapado, así que brew sólo lo copia.
 #   brew tap superpartnerdev/sp && brew trust superpartnerdev/sp
 #   brew install --cask superpartner
-#   superpartner --instalar-servicio --hub https://mcp.superpartner.ca
+#   superpartner --instalar-servicio --hub https://remote-agent.superpartner.dev
 cask "superpartner" do
   version "2.0.4"
   sha256 "3b6ef1a78da24e3902ac7eff2a7c1be5fa54847955ccea5b33dc3d693d7e6286"
@@ -10,7 +10,7 @@ cask "superpartner" do
   url "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v#{version}/SuperPartner-#{version}-darwin-arm64.zip"
   name "Super Partner"
   desc "El agente de SuperPartner: tus máquinas a distancia, igual que en local"
-  homepage "https://mcp.superpartner.ca"
+  homepage "https://remote-agent.superpartner.dev"
 
   depends_on arch: :arm64
   depends_on macos: :monterey
@@ -30,7 +30,7 @@ cask "superpartner" do
 
   caveats <<~EOS
     Para que arranque con tu sesión y aparezca como «Super Partner» en Ítems de inicio:
-      superpartner --instalar-servicio --hub https://mcp.superpartner.ca
+      superpartner --instalar-servicio --hub https://remote-agent.superpartner.dev
     Quitar:  superpartner --quitar-servicio
   EOS
 end
