@@ -1,7 +1,7 @@
 {
   "version": "2.0.4",
   "description": "El agente de SuperPartner: maneja esta maquina de forma remota desde el hub. A nivel usuario, sin admin.",
-  "homepage": "https://mcp.superpartner.ca",
+  "homepage": "https://remote-agent.superpartner.dev",
   "license": "Proprietary",
   "url": "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v2.0.4/superpartner-2.0.4.tgz",
   "hash": "b694df0c85f733fe3b22f84465914532d6c6504443e76b37cb69bad832867748",
@@ -19,8 +19,8 @@
   },
   "bin": "package\\superpartner.cmd",
   "post_install": [
-    "node \"$dir\\package\\dist\\main.js\" --instalar-servicio --hub https://mcp.superpartner.ca 2>&1 | Out-Null",
-    "Write-Host 'SuperPartner instalado. Aprueba esta maquina en el panel del hub (mcp.superpartner.ca).'"
+    "node \"$dir\\package\\dist\\main.js\" --instalar-servicio --hub https://remote-agent.superpartner.dev 2>&1 | Out-Null",
+    "Write-Host 'SuperPartner instalado. Aprueba esta maquina en el panel del hub (remote-agent.superpartner.dev).'"
   ],
   "uninstaller": {
     "script": [
@@ -28,7 +28,7 @@
     ]
   },
   "notes": [
-    "Para darle un nombre distinto al hostname:  superpartner --instalar-servicio --hub https://mcp.superpartner.ca --nombre TU-NOMBRE",
+    "Para darle un nombre distinto al hostname:  superpartner --instalar-servicio --hub https://remote-agent.superpartner.dev --nombre TU-NOMBRE",
     "Quitar:  scoop uninstall superpartner"
   ]
 }
