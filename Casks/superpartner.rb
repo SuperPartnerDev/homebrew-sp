@@ -4,8 +4,8 @@
 #   brew install --cask superpartner
 #   superpartner --instalar-servicio --hub https://remote-agent.superpartner.dev
 cask "superpartner" do
-  version "2.0.4"
-  sha256 "3b6ef1a78da24e3902ac7eff2a7c1be5fa54847955ccea5b33dc3d693d7e6286"
+  version "2.0.5"
+  sha256 "1a98610da8e7324f21d15659aa13ccdb7fc9bde121a43c9da2ec10a5f0d3699f"
 
   url "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v#{version}/SuperPartner-#{version}-darwin-arm64.zip"
   name "Super Partner"
