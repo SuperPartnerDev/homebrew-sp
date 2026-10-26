@@ -1,10 +1,10 @@
 {
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "El agente de SuperPartner: maneja esta maquina de forma remota desde el hub. A nivel usuario, sin admin.",
   "homepage": "https://remote-agent.superpartner.dev",
   "license": "Proprietary",
-  "url": "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v2.0.4/superpartner-2.0.4.tgz",
-  "hash": "b694df0c85f733fe3b22f84465914532d6c6504443e76b37cb69bad832867748",
+  "url": "https://github.com/SuperPartnerDev/homebrew-sp/releases/download/v2.0.5/superpartner-2.0.5.tgz",
+  "hash": "0f32bc043e515de46255bda6e25db1273773b9371e6c89e81fb9f447137f0af3",
   "installer": {
     "script": [
       "# El tgz npm se extrae en $dir\\package (solo dist/, sin dependencias).",
